@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../api/auth/[...nextauth]/routeConfig";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -9,7 +9,7 @@ const ProfilePage = async () => {
   //   if (!session || !session.user) redirect("/auth/signin");
   return (
     <div className="mt-5 p-5 item-center">
-      {user.role==="user" ? (
+      {user && user.role==="user" ? (
         <div className="flex flex-row justify-around">
         <div>
         <Image
@@ -21,7 +21,7 @@ const ProfilePage = async () => {
         />
         </div>
          <div className="grid grid-cols-2 mt-4">
-         <p>First Name:</p> <p className="col-span-1">{user?.name}</p>
+         <p>Name:</p> <p className="col-span-1">{user?.name}</p>
          <p>Email:</p> <p className="col-span-1">{user?.email}</p>
          {/* <p>Phone:</p> <p className="col-span-4">{user?.phone}</p> */}
         

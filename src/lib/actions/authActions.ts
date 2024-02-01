@@ -9,7 +9,7 @@ import {
   sendMail,
 } from "../mail";
 import { signJwt, verifyJwt } from "../jwt";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../prisma";
 
 export async function registerUser(
   user: Omit<User, "id" | "emailVerified" | "image">

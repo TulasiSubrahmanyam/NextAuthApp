@@ -69,18 +69,19 @@ const SignUpForm = () => {
   const [passStrength, setPassStrength] = useState(0);
   const [isVisiblePass, setIsVisiblePass] = useState(false);
 
-  useEffect(() => {
-    setPassStrength(passwordStrength(watch().password).id);
-  }, [watch().password]);
+  const passwordValue = watch().password;
+
+useEffect(() => {
+  setPassStrength(passwordStrength(passwordValue!).id);
+}, [passwordValue, watch]);
+
   const toggleVisblePass = () => setIsVisiblePass((prev) => !prev);
 
   const saveUser: SubmitHandler<InputType> = async (data) => {
     const { accepted, confirmPassword, ...user } = data;
     try {
       const result = await registerUser(user);
-      console.log(result)
       toast.success("The User Registered Successfully.");
-      reset()
     } catch (error) {
       toast.error("Something Went Wrong!");
       console.error(error);
