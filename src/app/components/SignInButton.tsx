@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@nextui-org/react";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
