@@ -27,16 +27,16 @@ export const authOptions: AuthOptions = {
           scope: "openid profile email https://www.googleapis.com/auth/user.phonenumbers.read ",
         },
       },
-    //   profile(profile) {
-    //     return {
-    //       id: profile.sub,
-    //       name: `${profile.given_name} ${profile.family_name}`,
-    //       email: profile.email,
-    //       image: profile.picture,
-    //       role: profile.role ? profile.role : "user",
-    //       phone: profile.phonenumbers,
-    //     };
-    //   },
+      profile(profile) {
+        return {
+          id: profile.sub,
+          name: `${profile.given_name} ${profile.family_name}`,
+          email: profile.email,
+          image: profile.picture,
+          role: profile.role ? profile.role : "user",
+          phone: profile.phonenumbers.read,
+        };
+      },
     
     }),
 
