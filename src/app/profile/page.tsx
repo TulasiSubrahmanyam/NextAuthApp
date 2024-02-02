@@ -9,7 +9,7 @@ const ProfilePage = async () => {
   //   if (!session || !session.user) redirect("/auth/signin");
   return (
     <div className="mt-5 p-5 item-center">
-      {user && user.role==="user" ? (
+      {user && user.name ? (
         <div className="flex flex-row justify-around">
         <div>
         <Image
